@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="nexchange">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Negocios Exchange Práctica</title>
+        <!-- bower:css -->
+        <link rel="stylesheet" href="vendor/toastr/toastr.css" />
+        <link rel="stylesheet" href="vendor/angular-loading-bar/build/loading-bar.css" />
+        <!-- endbower -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/styles/bootstrap-theme.css">
+        <link rel="stylesheet" href="/styles/bootstrap.css">
+        <link rel="stylesheet" href="/styles/font-awesome.css">
+        <link rel="stylesheet" href="/styles/morris.css">
+        <link rel="stylesheet" href="/styles/site.css">
+        <link rel="stylesheet" href="/styles/ngtables.css">
+        <!-- endinject -->    
+    </head>
+    <body ng-controller="rootCtrl">
+        <top-bar ng-if="showSideBar"></top-bar>
+        <div class="row-offcanvas row-offcanvas-left">
+            <side-bar ng-if="showSideBar"></side-bar>
+            <div id="main">
+                <div class="col-md-12">
+                    <p class="visible-xs">
+                        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                    </p>
+                    <div  ui-view></div>
+                </div>
+            </div>
+        </div><!--/row-offcanvas -->
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-cookies/angular-cookies.js"></script>
+        <script src="vendor/jquery/dist/jquery.js"></script>
+        <script src="vendor/bootstrap/bootstrap.js"></script>
+        <script src="vendor/angular-mocks/angular-mocks.js"></script>
+        <script src="vendor/angular-validator/dist/angular-validator.js"></script>
+        <script src="vendor/angular-validator/dist/angular-validator-rules.js"></script>
+        <script src="vendor/toastr/toastr.js"></script>
+        <script src="vendor/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <!-- endbower -->
+        <!-- inject:js -->
+        <script src="vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="/vendor/ngtables/ngtable.js"></script>
+        <script src="/scripts/modules/request.own.js"></script>
+        <script src="/scripts/modules/common.core.js"></script>
+        <script src="/scripts/modules/common.ui.js"></script>
+        <script src="/scripts/app.js"></script>
+        <script src="/scripts/services/apiService.js"></script>
+        <script src="/scripts/services/membershipService.js"></script>
+        <script src="/scripts/services/notificationService.js"></script>
+        <script src="/scripts/directives/sideBar.directive.js"></script>
+        <script src="/scripts/directives/topBar.directive.js"></script>
+        <script src="/scripts/controllers/miscellaneous/confirmCtrl.js"></script>
+        <script src="/scripts/controllers/home/indexCtrl.js"></script>
+        <script src="/scripts/controllers/account/loginCtrl.js"></script>
+        <script src="/scripts/controllers/account/activationCtrl.js"></script>
+        <script src="/scripts/controllers/account/recoveryCtrl.js"></script>
+        <script src="/scripts/controllers/account/resetCtr.js"></script>
+        <script src="/scripts/controllers/rootCtrl.js"></script>
+        <script src="/scripts/controllers/user/userCtrl.js"></script>
+        <script src="/scripts/controllers/user/userformCtrl.js"></script>
+        <script src="/scripts/controllers/user/userdeleteCtrl.js"></script>
+        <script src="/scripts/controllers/bank/bankCtrl.js"></script>
+        <script src="/scripts/controllers/bank/bankformCtrl.js"></script>
+        <script src="/scripts/controllers/bank/bankdeleteCtrl.js"></script>
+        <script src="/scripts/controllers/bank/cashierModalCtrl.js"></script>
+
+        <!-- endinject -->    
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="fa fa-bank"></i>
+        <a ui-sref="bank">Cuentas Bancarias</a> 
+        <i class="icon-angle-right"></i>
+    </li>
+</ul>
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+        <a class="btn btn-primary panel-title pull-left" ui-sref="bank-new({bank: null})">Nueva Cuenta Bancaria</a>
+            <div class="input-group">
+                <input id="inputSearchBanks" type="search" ng-model="filterUers" class="form-control shortInputSearch" placeholder="Filtrar, buscar cuenta bancarias..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <h3 ng-if="banks.length == 0" class="text-center">NO HAY CUENTAS REGISTRADAS</h3>         
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="bank in banks | filter:filterBanks">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>{{bank.bank.bank}} - {{bank.account_type.type}}</strong><br/>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-condensed shortMargin">
+                                    <tr>
+                                        <td class="shortPadding">Cuenta Nro:</td>
+                                        <td class="shortPadding"><i>{{bank.account}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">A Nombre de:</td>
+                                        <td class="shortPadding"><i>{{bank.account_dni}} - {{bank.account_owner}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Saldo:</td>
+                                        <td class="shortPadding"><i>{{bank.balance}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Cajeros:</td>
+                                        <td class="shortPadding"><i ng-repeat="cashier in bank.cashiers" ng-class="{'last': $last}"><a ui-sref="user-edit({user:cashier})">{{cashier.username}}</a><i ng-if="!$last">,</i> </i></td>
+                                    </tr>                                    
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="pull-right">
+	            				<div class="btn-toolbar">
+                                    <a class="btn btn-primary" ui-sref="bank-edit({bank:bank})">Editar</a>
+									<a class="btn btn-primary"  ng-click="openDeleteDialog(bank);">Eliminar</a>
+	           					</div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="text-center">
+                <custom-pager page="{{page}}" pages-count="1" total-count="20" search-func="search(page)"></custom-pager>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="fa fa-users"></i>
+        <a ui-sref="user">Usuarios</a> 
+        <i class="icon-angle-right"></i>
+    </li>
+</ul>
+			<!-- <a class="btn btn-primary" href="#!/user/new">Nuevo Usuario</a> -->
+<!-- <hr /> -->
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+        <a class="btn btn-primary panel-title pull-left" ui-sref="user-new">Nuevo Usuario</a>
+            <div class="input-group">
+                <input id="inputSearchUsers" type="search" ng-model="filterUers" class="form-control shortInputSearch" placeholder="Filtrar, buscar usuarios..">
+                <div class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="search();"><i class="glyphicon glyphicon-search"></i></button>
+                    <button class="btn btn-primary" ng-click="clearSearch();"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="user in users | filter:filterUers">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>{{user.fullname}}</strong><br/>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-condensed shortMargin">
+                                    <tr>
+                                        <td class="shortPadding">Email:</td>
+                                        <td class="shortPadding"><i>{{user.email}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Usuario:</td>
+                                        <td class="shortPadding"><i>{{user.username}}</i></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="shortPadding">Grupo:</td>
+                                        <td class="shortPadding"><i>{{user.group.name}}</i></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="pull-right">
+	            				<div class="btn-toolbar">
+                                    <a class="btn btn-primary" ui-sref="user-edit({user:user})">Editar</a>
+									<a class="btn btn-primary"  ng-click="openDeleteDialog(user);">Eliminar</a>
+	           					</div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="text-center">
+                <custom-pager page="{{page}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></custom-pager>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <ul class="breadcrumb">
+    <li>
+        <i class="fa fa-users"></i>
+        <a href="#!/user">Usuarios</a> 
+        <i class="icon-angle-right"></i>
+    </li>
+</ul>
+<hr />
+<div class="navbar-right userinfo">
+	<a class="btn btn-info" href="#!/user/new">Nuevo Usuario</a>
+</div>
+<div class="row">
+	<table ng-table="UsersParams" class="table" show-filter="true">
+	    <tr ng-repeat="user in $data">
+	        <td title="'Nombre'"  sortable="'fullname'">
+	            {{user.fullname}}</td>
+	        <td title="'Usuario'"  sortable="'username'">
+	            {{user.username}}</td>	    
+	        <td title="'Email'"  sortable="'email'">
+	            {{user.email}}</td>		
+	        <td title="'Grupo'"  sortable="'group.name'">
+	            {{user.group.name}}</td>	
+	        <td title=""> <a href="#!/user/edit/{{user.id}}">Editar</a></td>	                                
+	        <td title=""> <a href="#!/user/delete/{{user.id}}">Eliminar</a></td>	                                
+	    </tr>
+	</table>
+</div>
+ -->
+<!-- filter="{ fullname: 'text'}" -->
+
+

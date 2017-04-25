@@ -1,0 +1,48 @@
+<ul class="breadcrumb">
+    <li>
+        <i class="fa fa-users"></i>
+        <a ui-sref="user">Usuarios</a> 
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">Insertar</a></li>
+</ul>
+<div class="row">
+    <form role="form" novalidate angular-validator name="addUserForm" angular-validator-submit="Register()">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="lastName">Usuario</label>
+                <div class="form-group">
+                    <input ng-disabled="userReg.id > 0" type="text" class="form-control" ng-model="userReg.username" name="username" id="username" placeholder="Usuario"
+                           validate-on="blur" required required-message="'Ingrese el Usuario'">
+                </div>
+            </div>        
+            <div class="form-group">
+                <label for="firstName">Nombre Completo</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="userReg.fullname" name="fullname" id="fullname" placeholder="Nombre Completo"
+                           validate-on="blur" required required-message="'Ingrese el Nombre Completo'">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="form-group">
+                    <input type="email" class="form-control" ng-model="userReg.email" id="email" name="email" placeholder="ejemplo@gmail.com"
+                           validate-on="blur" required required-message="'Ingrese el Email'">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="identityCard">Grupo</label>
+                <div class="form-group">
+                    <select ng-model="userReg.group" class="form-control black" ng-options="option.id as option.name for option in groups">
+                        <option value="" selected="selected">Seleccione un Grupo</option>
+                    </select>
+                    <input type="hidden" name="group" ng-value="userReg.group" />
+                </div>
+            </div>
+            <div class="btn-toolbar">
+            <input type="submit" name="submit" id="submit" value="Guardar" class="btn btn-primary pull-right ">
+            <a class="btn btn-primary pull-right " ui-sref="user">Cancelar</a>
+            </div>
+        </div>
+    </form>
+</div>
